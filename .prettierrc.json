@@ -1,0 +1,11 @@
+{
+	"singleQuote": true,
+	"useTabs": true,
+	"tabWidth": 1,
+	"semi": false,
+	"jsxSingleQuote": true,
+	"arrowParens": "avoid",
+	"importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
+}
