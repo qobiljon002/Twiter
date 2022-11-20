@@ -1,0 +1,386 @@
+.accountModal {
+	width: 600px;
+	height: 650px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	padding: 22px 80px 40px 80px;
+	transform: translate(-50%, -50%) scale(0.96);
+	background-color: #fff;
+	border-radius: 20px;
+	user-select: none;
+	&Active {
+		z-index: 1000;
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	&Step {
+		position: relative;
+		top: -3.2rem;
+		right: 0.5rem;
+		font-size: 25px;
+	}
+
+	&Setting {
+		margin-top: -15px;
+	}
+	h2 {
+		margin-top: 35px;
+		font-style: 20px;
+	}
+
+	&Input {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	&Text {
+		margin-top: 40px;
+
+		p {
+			margin-top: 10px;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-size: 14px;
+			font-weight: 400;
+			color: rgb(100, 100, 100);
+		}
+	}
+	&ChangeBtn {
+		text-align: right;
+		margin-top: 12px;
+		font-size: 17px;
+		color: #1da1f2;
+		font-weight: 300;
+		background-color: #fff;
+		border: none;
+		width: 440px;
+		cursor: pointer;
+	}
+	&ChangeBtn:hover {
+		text-decoration: underline;
+	}
+
+	&Date {
+		margin-top: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 440px;
+	}
+
+	.submitButton {
+		position: absolute;
+		bottom: 25px;
+		// margin-top: 75px;
+		border-radius: 40px;
+		font-size: 17px;
+		color: #ffffff;
+		font-weight: 700;
+		background-color: #0e0d0d;
+		border: none;
+		width: 440px;
+		height: 50px;
+		cursor: pointer;
+
+		&:active {
+			background-color: #020202;
+			color: #ffffff;
+		}
+
+		&:disabled {
+			color: rgb(171, 173, 186);
+			background-color: #e2e2e9;
+			cursor: not-allowed;
+		}
+	}
+
+	.accountModalChangeBtn :hover {
+		text-decoration: underline;
+	}
+
+	.inputName,
+	.inputPhoneEmail {
+		appearance: none;
+		outline: none;
+
+		&:focus {
+			border: 1px solid #1da1f2;
+		}
+	}
+	.accountModalDate select {
+		border: 0.05px solid rgb(207, 217, 222);
+		background-color: rgba(255, 255, 255, 1);
+		padding: 24px 8px 0px 8px;
+		height: 56px;
+		border-radius: 4px;
+		font-size: 17px;
+		appearance: none;
+	}
+
+	.month {
+		width: 200px;
+	}
+	.date {
+		width: 93px;
+	}
+	.year {
+		width: 117px;
+	}
+
+	.accountModalDate select:focus-visible {
+		outline: 1px solid #1da1f2;
+	}
+
+	option {
+		background: rgb(255, 255, 255);
+	}
+
+	.closeicon {
+		height: 25px;
+		cursor: pointer;
+	}
+	.closeBtn:hover {
+		background-color: #e6e6e6;
+	}
+
+	.closeBtn {
+		left: -63px;
+		top: -15px;
+		position: relative;
+		width: 40px;
+		height: 40px;
+		border: 1px solid #ffffff;
+		border-radius: 99999px;
+		background-color: #ffffff;
+	}
+
+	.inputContainer {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.inputContainerCheck {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.inputContainerCheck input {
+		border: 1.5px solid rgb(207, 207, 207);
+		width: 438px;
+		margin-top: 25px;
+		height: 56px;
+		border-radius: 4px;
+		padding: 24px 16px 4px 14px;
+		font-size: 18px;
+		line-height: 1;
+		outline: none;
+		box-shadow: none;
+		transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+	}
+
+	.dateOfContainer {
+		border: 1.5px solid rgb(207, 207, 207);
+		width: 438px;
+		margin-top: 25px;
+		height: 56px;
+		border-radius: 4px;
+		padding: 24px 16px 4px 14px;
+		font-size: 18px;
+		line-height: 1;
+		outline: none;
+		box-shadow: none;
+		transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+	}
+
+	.dateOfInfo {
+		display: flex;
+		width: 200px;
+		gap: 5px;
+		margin-top: 5px;
+	}
+
+	.dateOfInfo input {
+		border: none;
+	}
+
+	.inputContainerCheckIcon {
+		display: flex;
+		justify-content: right;
+		position: relative;
+		top: -1.5rem;
+		left: -1rem;
+	}
+
+	.inputContainerCheckIcon2 {
+		display: flex;
+		justify-content: right;
+		position: relative;
+		top: -1rem;
+		color: green;
+		font-size: 17px;
+		left: 0.2rem;
+	}
+
+	.inputContainerCheck:focus-within .inputContainer:focus-within .filled {
+		transform: translate(0, 30px) scale(0.8);
+		color: #1da1f2;
+	}
+
+	.inputContainer:focus-within .letterCounter {
+		transform: translate(0, 30px) scale(0.8);
+		color: #242323;
+	}
+
+	.dateMonth:focus-within .filledMonth {
+		color: #1da1f2;
+	}
+
+	.dateDate:focus-within .filledDate {
+		color: #1da1f2;
+	}
+
+	.dateYear:focus-within .filledYear {
+		color: #1da1f2;
+	}
+
+	.filled {
+		position: absolute;
+		pointer-events: none;
+		transform: translate(0, 30px) scale(1);
+		color: #6f81a5;
+		font-size: 20px;
+		line-height: 1;
+		left: 10px;
+		&Span {
+			padding-left: 10px;
+			color: #f21d21;
+		}
+		&Month {
+			position: absolute;
+			pointer-events: none;
+			transform: translate(0, 10px) scale(1);
+			color: #6f81a5;
+			line-height: 1;
+			left: 88px;
+		}
+		&Date {
+			position: absolute;
+			pointer-events: none;
+			transform: translate(0, 10px) scale(1);
+			color: #6f81a5;
+			line-height: 1;
+			left: 302px;
+		}
+		&Year {
+			position: absolute;
+			pointer-events: none;
+			transform: translate(0, 10px) scale(1);
+			color: #6f81a5;
+			line-height: 1;
+			left: 408px;
+		}
+	}
+
+	.filledCheck {
+		position: absolute;
+		pointer-events: none;
+		transform: translate(0, 30px) scale(0.8);
+		color: #6f81a5;
+		font-size: 20px;
+		line-height: 1;
+		left: 10px;
+	}
+
+	.filledCheck2 {
+		position: absolute;
+		pointer-events: none;
+		transform: translate(0, 0) scale(0.8);
+		color: #6f81a5;
+		font-size: 20px;
+		line-height: 1;
+		left: 5rem;
+		top: 22rem;
+	}
+
+	.inputContainer input {
+		border: 1.5px solid rgb(207, 207, 207);
+		width: 438px;
+		margin-top: 25px;
+		height: 56px;
+		border-radius: 4px;
+		padding: 24px 16px 4px 14px;
+		font-size: 18px;
+		line-height: 1;
+		outline: none;
+		box-shadow: none;
+		transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+	}
+
+	.letterCounter {
+		position: absolute;
+		pointer-events: none;
+		transform: translate(0, 28px) scale(0);
+		font-size: 20px;
+		line-height: 1;
+		left: 390px;
+		color: #111;
+	}
+}
+
+.secondModalText {
+	margin-top: 12px;
+	font-size: 15px;
+	width: 379px;
+}
+
+.secondModalText2 {
+	margin-top: 10px;
+	font-size: 14px;
+	width: 370px;
+	color: #6f81a5;
+}
+
+.modalSumbitBtn {
+	margin-top: 180px;
+}
+
+.exModal {
+	border: 1.5px solid rgb(207, 207, 207);
+	border-radius: 4px;
+	width: 440px;
+	height: 58px;
+	padding-top: 5px;
+	padding-left: 12px;
+	// padding-top: 12px;
+	// padding-bottom: 12px;
+}
+.exModalBox {
+	display: flex;
+	flex-flow: column;
+	gap: 30px;
+	margin-top: 30px;
+	&Tittle {
+		margin-top: -20px;
+	}
+}
+
+.passwordEye {
+	position: relative;
+	top: -2rem;
+	left: 25rem;
+	width: 30px;
+}
+
+.cheakIcon {
+	color: green;
+}
+.checkbox {
+	width: 22px;
+	height: 22px;
+	position: relative;
+	left: 25.5rem;
+	top: -4.5rem;
+}

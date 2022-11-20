@@ -1,0 +1,12 @@
+[
+  {
+    "id": "tweet1ID",
+    "userID": "user1ID",
+    "text": "Finally, the truth that carbs are amazing can be said on this platform!",
+    "hashtags": ["FreeSpeech"],
+    "imgs": [],
+    "videos": [],
+    "comments": ["comment1ID", "comment2ID", "comment3ID"],
+    "likes": ["user1ID", "user2ID"]
+  }
+]

@@ -19,8 +19,6 @@
 	},
 	"include": ["src/", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"],
-	"paths": {
-		"@constants": ["./constants/"],
-		"@constants/*": ["./constants/*"]
-	}
+
+
 }
