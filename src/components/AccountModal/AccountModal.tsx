@@ -7,10 +7,7 @@ import axios from 'axios';
 import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 
-
-
 import styles from './AccountModal.module.scss';
-
 
 library.add(fas)
 
@@ -48,7 +45,6 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 	const eyeIcon: IconLookup = { prefix: 'fas', iconName: 'eye' }
 	const eyeIconOf: IconLookup = { prefix: 'fas', iconName: 'eye-slash' }
 	const circleCheak: IconLookup = { prefix: 'fas', iconName: 'circle-check' }
-	const checked: IconLookup = { prefix: 'fas', iconName: 'check' }
 	const xMarkIconDefinition: IconDefinition = findIconDefinition(xMark)
 	const coffeeIconDefinition: IconDefinition = findIconDefinition(coffeeLookup)
 
@@ -188,9 +184,6 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 					phoneEmailRef.current?.value.length === 13 &&
 					email
 				) {
-					axios.post('http://localhost:3002/auth/otpcheck', {
-						code: values.join(''),
-					})
 					nextButtonRef.current.disabled = false
 				} else {
 					nextButtonRef.current.disabled = true
@@ -227,24 +220,6 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 	for (let i = 31; i >= 1; i--) {
 		listOfDates.push(i)
 	}
-
-		useEffect(() => {
-
-			const OTPInputs = document.querySelectorAll(
-				'[data-name="OTPInput"]'
-			) as NodeListOf<HTMLInputElement>
-
-			const values: string[] = []
-			OTPInputs.forEach((OTPInput: HTMLInputElement) => {
-				if (OTPInput.value) {
-					values.push(OTPInput.value)
-				}
-			})
-
-			if (values.length === 4) {
-				axios.post('http://localhost:8003/auth/otpcheck', { code: values.join('') })
-			}
-		})
 
 	return (
 		<>
