@@ -126,6 +126,12 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 				setCounter(0)
 			}
 		}
+		if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+			setCounter(counter)
+		}
+		
+			
+		
 	}
 
 	const warning = (e: {
