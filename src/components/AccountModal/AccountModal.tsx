@@ -1,13 +1,16 @@
+/* eslint-disable react/no-unescaped-entities */
+
 /* eslint-disable no-unused-vars */
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { IconDefinition, IconLookup, findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
-import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 
+
+
 import styles from './AccountModal.module.scss';
+
 
 library.add(fas)
 
@@ -31,7 +34,11 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 	const [eye, seteye] = useState(true)
 	const [password, setpassword] = useState('password')
 	const [type, settype] = useState(false)
+	const [nameSpan, setNameSpan] = useState<string | boolean>('')
+	const [data, setData]=useState<string>('')
+	
 
+	const nameSpanRef=useRef<HTMLSpanElement>(null)
 	const nameRef = useRef<HTMLInputElement>(null)
 	const nextButtonRef = useRef<HTMLButtonElement>(null)
 	const phoneEmailRef = useRef<HTMLInputElement>(null)
@@ -115,11 +122,14 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 		setCounter(counter + 1)
 		if (counter >= 50) {
 			setCounter(50)
+			e.preventDefault()
 		}
 		if (e.key === 'Backspace') {
 			setCounter(counter - 1)
 			if (counter <= 0) {
 				setCounter(0)
+				
+				
 			}
 		}
 		if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
@@ -139,18 +149,25 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 			}
 		}
 	}): void => {
-		if (e.target.value === '') {
+		if (e.target.value === '' ) {
 			e.target.style.borderColor = 'red'
 			e.target.style.color = 'red'
-		} else {
+			if (nameSpanRef.current) {
+				setNameSpan('What is your name ?')
+				nameSpanRef.current.style.color = 'red'
+			}
+		}
+		else {
 			e.target.style.borderColor = '#1da1f2'
 			e.target.style.color = '#1da1f2'
+			setNameSpan(true)
 		}
 		if (nameRef.current?.type === 'text') {
 			const nameValue = e.target.value
 			setName(nameValue)
 		}
 	}
+
 	const monthCheck = (e: { target: { value: any } }) => {
 		if (monthRef.current?.selectedOptions) {
 			const monthValue = e.target.value
@@ -238,7 +255,6 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 								<h1>Create an account</h1>
 								<div className={styles.inputContainer}>
 									<input
-										// id='name'
 										type='text'
 										ref={nameRef}
 										className={styles.inputName}
@@ -246,7 +262,10 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 										onChange={warning}
 										onKeyDown={InputHandler}
 										value={name}
+										
 									/>
+									<span ref={nameSpanRef}>{ nameSpan}</span>
+
 									<label htmlFor='name' className={styles.filled}>
 										Name
 									</label>
@@ -264,7 +283,8 @@ export const AccountModal: React.FC<IAccountModalProps> = ({
 										{emailPhone ? 'Phone' : 'Email'}
 									</label>
 								</div>
-
+								
+ 
 								<button
 									className={styles.accountModalChangeBtn}
 									tabIndex={-1}
